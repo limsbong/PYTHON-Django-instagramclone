@@ -11,13 +11,12 @@ class User(AbstractBaseUser):
     유저 비밀번호 - 디폴트
     """
 
-    profile_img = models.TextField()
-    nickname = models.CharField(max_length=24, unique=True)
-    name = models.CharField(max_length=24)
+    profile_image = models.TextField()
+    nickname = models.CharField(max_length=24, unique=True, null=True)
+    name = models.CharField(max_length=24, null=True)
     email = models.EmailField(unique=True)
 
     USERNAME_FIELD = 'nickname'
     class Meta:
         db_table = "User"
-
 
